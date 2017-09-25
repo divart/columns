@@ -1,27 +1,105 @@
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+.column img,
+.column object,
+.column embed {
+    max-width: 100%;
+    height: auto;
+}
+
 .column-group {
-	width: 100%;
-	overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    *zoom: 1;
+}
+
+.column-group:before,
+.column-group:after {
+    content: " ";
+    display: table;
+}
+
+.column-group:after {
+    clear: both;
 }
 
 .column {
-	float: left;
-	margin-right: 5%;
-	width: 100%;
+    width: 100%;
 }
 
-.column-group > br,
-.column-group > p {
-	display: none;
+.column-group>br,
+.column-group>p {
+    display: none;
 }
 
 .column.last {
-	margin-right: 0;
+    margin-right: 0;
 }
 
-.columns-2 .column { width: 47.5%; } /* ( 100 - $margin * ( $num_cols - 1 ) ) / $num_cols */
-.columns-3 .column { width: 30%; }
-.columns-4 .column { width: 21.25%; }
+@media only screen and (min-width: 768px) {
+    .column {
+        float: left;
+        margin-right: 4%;
+    }
+    .columns-2 .column {
+        width: 48%;
+    }
+    /* ( 100 - $margin * ( $num_cols - 1 ) ) / $num_cols */
+    .columns-3 .column {
+        width: 30.666666%;
+    }
+    .columns-4 .column {
+        width: 22%;
+    }
+    .columns-3 .column-span-2 {
+        width: 65.333333%;
+    }
+    /* $width * $span + $margin * ( $span - 1 ) */
+    .columns-4 .column-span-2 {
+        width: 48%;
+    }
+    .columns-4 .column-span-3 {
+        width: 74%;
+    }
+}
 
-.columns-3 .column-span-2 { width: 65%; } /* $width * $span + $margin * ( $span - 1 ) */
-.columns-4 .column-span-2 { width: 47.5%; }
-.columns-4 .column-span-3 { width: 73.75%; }
+@media only screen and (min-width: 1280px) {
+    .column {
+        margin-right: 5%;
+    }
+    .columns-2 .column {
+        width: 47.5%;
+    }
+    /* ( 100 - $margin * ( $num_cols - 1 ) ) / $num_cols */
+    .columns-3 .column {
+        width: 30%;
+    }
+    .columns-4 .column {
+        width: 21.25%;
+    }
+    .columns-3 .column-span-2 {
+        width: 65%;
+    }
+    /* $width * $span + $margin * ( $span - 1 ) */
+    .columns-4 .column-span-2 {
+        width: 47.5%;
+    }
+    .columns-4 .column-span-3 {
+        width: 73.75%;
+    }
+}
